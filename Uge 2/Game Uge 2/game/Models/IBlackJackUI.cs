@@ -17,5 +17,6 @@ namespace game.Models
         void FinalWinner(Player player);
         bool PlayAgain();
         void FinalScore(params Player[] players);
+        void Tie(Dealer dealer, Player player1);
     }
 }

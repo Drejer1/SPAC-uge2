@@ -4,6 +4,7 @@ using System.Drawing;
 
 public class BlackJackUI : IBlackJackUI
 {
+    int delay = 800;
     public BlackJackUI()
     {
         Console.BackgroundColor = ConsoleColor.Gray;
@@ -84,6 +85,7 @@ public class BlackJackUI : IBlackJackUI
     public void FinalWinner(Player player)
     {
         Console.WriteLine($"|{player.Name} Wins!!".PadRight(30)+"|");
+        Thread.Sleep(delay);
         Console.WriteLine("|=============================|");
     }
 
@@ -115,5 +117,14 @@ public class BlackJackUI : IBlackJackUI
             str += $"{player.Name}: {player.Points}.";
         }
         Console.WriteLine(str.PadRight(29)+"|");
+    }
+
+    public void Tie(Dealer dealer, Player player1)
+    {
+        Console.WriteLine("Dealer and player tie");
+        Thread.Sleep(delay);
+        Console.WriteLine("Starting new game");
+        Thread.Sleep(delay);
+
     }
 }

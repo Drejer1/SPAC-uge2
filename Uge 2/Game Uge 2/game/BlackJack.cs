@@ -10,7 +10,7 @@ namespace game
 {
     class BlackJack
     {
-        int delay = 500;
+        int delay = 800;
         private readonly IBlackJackUI _ui;
         public BlackJack(IBlackJackUI ui)
         {
@@ -94,7 +94,14 @@ namespace game
                 }
                 else
                 {
-                    if (player1.Points >= dealer.Points)
+                    if (player1.Points == dealer.Points)
+                    {
+                        Thread.Sleep(delay);
+                        _ui.Tie(dealer, player1);
+                        RestartGame(deck, player1, dealer);
+                        continue;
+                    }
+                    else if (player1.Points >= dealer.Points)
                     {
                         Thread.Sleep(delay);
                         _ui.FinalScore(dealer, player1);
